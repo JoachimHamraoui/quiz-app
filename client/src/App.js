@@ -1,7 +1,7 @@
 import './App.css';
 import io from "socket.io-client";
 import { useEffect, useState} from "react";
-import ChooseProfile from "./components/ChooseProfile.js"
+import ChooseProfile from "./components/ChooseProfile"
 
 const socket = io.connect("http://localhost:3001");
 

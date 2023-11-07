@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
       socket.to(data.room).emit("receive_message", data)
   })
 
-  socket.on('join_room', (data) => {
+  socket.on('create_room', (data) => {
     socket.join(data.room);
 
     if (!rooms[data.room]) {
