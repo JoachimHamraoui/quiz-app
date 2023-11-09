@@ -7,9 +7,12 @@ module.exports = {
     extend: {
     },
     colors: {
-      'green': '#2be95ade',
+      'red': '#eb4034',
+      'blue': '#3081f2',
+      'yellow': '#d4ce33',
+      'green': '#30ba3e',
       'white': '#EBEBEB',
-      'black': '#111111',
+      'black': '#212121',
       'grey': '#606060'
     },
     fontFamily: {
