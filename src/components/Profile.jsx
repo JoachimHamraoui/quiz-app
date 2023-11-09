@@ -1,28 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
-import io from "socket.io-client";
+import { Link } from "react-router-dom";
 import '../App.css';
 
-function Room() {
+function Profile() {
 
-  const socket = io.connect(`http://localhost:3001`);
-  // Room State
-  const { room } = useParams();
-  const [usersInRoom, setUsersInRoom] = useState([]);
-
-  // const {roomId} = useParams();
-
-  // User State
-  const [username, setUsername] = useState("");
-  const [role, setRole] = useState("");
-
+  
   useEffect(() => {
-
-
-    socket.on("users_in_room", (users) => {
-      setUsersInRoom(users);
-    });
-
 
   }, []);
 
@@ -40,19 +23,18 @@ function Room() {
             </h1>
           </div>
           <div className='w-full flex flex-col items-center mt-14'>
-          <h1 className='text-white'>Users in Room:</h1>
-      <ul>
-        {usersInRoom.map((user, index) => (
-          <li key={index} className='text-white'>{user}</li>
-        ))}
-      </ul>
-      <h1 className='text-white mt-10'>{room}</h1>
+          <Link className='w-full px-5 py-3 bg-blue text-white text-xl font-mont rounded-2xl focus:outline-none focus:shadow-outline mb-5 text-center' to="/quizmaster" >
+                  Quizmaster
+            </Link>
+            <Link className='w-full px-5 py-3 bg-green text-white text-xl font-mont rounded-2xl focus:outline-none focus:shadow-outline mb-5 text-center' to="/player" >
+                  Play
+            </Link>
+          </div>
+          
         </div>
       </div>
-    </div>
     </div>
   );
 }
 
-
-export default Room;
+export default Profile;
