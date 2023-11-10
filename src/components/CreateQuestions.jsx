@@ -38,6 +38,7 @@ const {category} = useParams();
       option2: option2,
       option3: option3,
       option4: option4,
+      rightAnswer: rightAnswer
     });
 
 
@@ -88,7 +89,15 @@ const {category} = useParams();
               <input className="w-full px-5 py-3 bg-blue text-white text-xl font-mont rounded-2xl focus:outline-none focus:shadow-outline mb-5" type="text" placeholder="Option 4" onChange={(event => {
                 setOption4(event.target.value);
               })}/>
-              <button onClick={addDocCollection} className="w-full px-5 py-3 bg-blue text-white text-xl font-mont rounded-2xl focus:outline-none focus:shadow-outline mb-5">Add Question</button>
+            <select className="w-full px-5 py-3 bg-blue text-white text-xl font-mont rounded-2xl focus:outline-none focus:shadow-outline mb-5" id="rightAnswer" value={rightAnswer} onChange={(event => {
+                setRightAnswer(event.target.value);
+              })}>
+              <option value={`${option1}`}>{option1}</option>
+              <option value={`${option2}`}>{option2}</option>
+              <option value={`${option3}`}>{option3}</option>
+              <option value={`${option4}`}>{option4}</option>
+            </select>
+              <button onClick={addDocCollection} className="w-full px-5 py-3 bg-green text-white text-xl font-mont rounded-2xl focus:outline-none focus:shadow-outline mb-5">Add Question</button>
              </div>
             </div>
           </div>
