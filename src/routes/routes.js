@@ -5,6 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Player from "../components/Player";
 import Quizmaster from "../components/Quizmaster";
 import Quiz from "../components/Quiz"
+import CreateQuestions from "../components/CreateQuestions"
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/quizmaster",
     element: <Quizmaster />,
+  },
+  {
+    path: "/quizmaster/:category",
+    element: <CreateQuestions />,
   }
 ]);
 
