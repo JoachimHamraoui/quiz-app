@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs, firestore, addDoc, doc, setDoc, collection as subcollection } from 'firebase/firestore';
+import { storage } from "../firebase-config";
+import { ref, uploadBytes } from "firebase/storage";
 import io from "socket.io-client";
 import { Link, useParams } from "react-router-dom";
 import '../App.css';
 import { db } from '../firebase-config';
+import {v4} from "uuid";
 
 const Quizmaster = () => {
 
@@ -15,6 +18,17 @@ const {category} = useParams();
   const [option3, setOption3] = useState('');
   const [option4, setOption4] = useState('');
   const [rightAnswer, setRightAnswer] = useState('');
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imagePath, setImagePath] = useState('');
+
+  const uploadImage = () => {
+    if (imageUpload == null) return;
+    setImagePath(`images/${imageUpload.name + v4()}`)
+    const imageRef = ref(storage, imagePath);
+    uploadBytes(imageRef, imageUpload).then(() => {
+      alert("Question has been added");
+    });
+  }
 
   const addDocCollection = async () => {
 
@@ -31,6 +45,8 @@ const {category} = useParams();
     // Add a new document to the 'questions' subcollection with the provided data
     const newDocRef = doc(questionsCollectionRef);
 
+    uploadImage();
+
     // Set data for the new document
     await setDoc(newDocRef, {
       question: question,
@@ -38,7 +54,8 @@ const {category} = useParams();
       option2: option2,
       option3: option3,
       option4: option4,
-      rightAnswer: rightAnswer
+      rightAnswer: rightAnswer,
+      imageRef: imagePath
     });
 
 
@@ -97,6 +114,9 @@ const {category} = useParams();
               <option value={`${option3}`}>{option3}</option>
               <option value={`${option4}`}>{option4}</option>
             </select>
+            <input className="w-full px-5 py-3 bg-blue text-white text-xl font-mont rounded-2xl focus:outline-none focus:shadow-outline mb-5" type="file" placeholder="Upload an image" onChange={(event => {
+                setImageUpload(event.target.files[0]);
+              })}/>
               <button onClick={addDocCollection} className="w-full px-5 py-3 bg-green text-white text-xl font-mont rounded-2xl focus:outline-none focus:shadow-outline mb-5">Add Question</button>
              </div>
             </div>
