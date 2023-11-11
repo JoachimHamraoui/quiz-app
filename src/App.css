@@ -23,6 +23,11 @@
   color: #61dafb;
 }
 
+label:not(.peer-checked) .bg-red {
+  /* Your styles for the unchecked state */
+  background-color: #FF0000; /* Red background for unchecked state */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
