@@ -12,9 +12,9 @@ function Profile() {
   return (
     <div className="App">
       <div className='w-full h-screen bg-black flex items-center justify-center'>
-        <div className='w-2/6 p-4'>
+        <div className='p-4 sm:w-11/12 md:w-2/6'>
           <div className='flex justify-center'>
-            <h1 className='font-display text-8xl'>
+            <h1 className='font-display text-8xl sm:text-7xl'>
               <span className='text-red'>K</span>
               <span className='text-yellow'>a</span>
               <span className='text-blue'>p</span>
