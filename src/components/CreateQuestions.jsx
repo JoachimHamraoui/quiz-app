@@ -58,6 +58,14 @@ const {category} = useParams();
       imageRef: imagePath
     });
 
+    setQuestion('');
+    setOption1('');
+    setOption2('');
+    setOption3('');
+    setOption4('');
+    setRightAnswer('');
+    setImageUpload(null);
+
 
         // Create an empty 'questions' subcollection within the new document
         //   const questionsCollectionRef = collection(newDocRef, 'questions');
@@ -76,7 +84,7 @@ const {category} = useParams();
 
   return (
     <div className="App">
-        <div className="w-full fixed flex justify-center mt-8">
+        <Link to='/' className="w-full fixed flex justify-center mt-8">
             <h1 className='font-display text-4xl'>
               <span className='text-red'>K</span>
               <span className='text-yellow'>a</span>
@@ -84,9 +92,9 @@ const {category} = useParams();
               <span className='text-green'>ü</span>
               <span className='text-red'>t.</span>
             </h1>
-        </div>
+        </Link>
       <div className='w-full h-screen bg-black flex flex-col items-center justify-center'>
-        <div className='w-2/6 p-4'>
+        <div className='p-4 sm:w-11/12 md:w-2/6'>
           <div className='w-full flex flex-col items-center mt-14'>
             <div className="w-full flex flex-col">
               <h1 className="text-white font-display text-3xl mb-5">Create questions for {category} quiz</h1>

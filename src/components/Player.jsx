@@ -24,7 +24,7 @@ const Player = () => {
 
   return (
     <div className="App">
-      <div className="w-full fixed flex justify-center mt-8">
+      <Link to='/' className="w-full fixed flex justify-center mt-8">
             <h1 className='font-display text-4xl'>
               <span className='text-red'>K</span>
               <span className='text-yellow'>a</span>
@@ -32,9 +32,9 @@ const Player = () => {
               <span className='text-green'>ü</span>
               <span className='text-red'>t.</span>
             </h1>
-        </div>
+        </Link>
       <div className='w-full h-screen bg-black flex items-center justify-center'>
-        <div className='w-2/6 p-4'>
+        <div className='p-4 sm:w-11/12 md:w-2/6'>
           <div className='w-full flex flex-col items-center mt-14'>
             {questions.map((item) => {
                   return (
